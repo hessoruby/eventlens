@@ -1,8 +1,24 @@
 # EventLens
 
-EventLens is an open-source developer workspace for receiving and debugging webhooks. Create a project and a private capture URL, send a real HTTP POST, then inspect the stored headers, payload, timeline, and analytics. Replays re-ingest a saved payload through its original endpoint's capture pipeline. A separate read-only inspector retrieves Ethereum mainnet transactions and receipts from an RPC endpoint.
+EventLens captures HTTP POST requests at project-specific webhook URLs. It saves each request in PostgreSQL so you can inspect its body and headers, search event history, replay it through its original capture endpoint, and check project activity. A separate read-only page inspects Ethereum mainnet transactions.
 
-This is a database-backed Next.js application. Its counters, charts, events, and replay results come from PostgreSQL; it has no AI features or AI API dependencies.
+Built with Next.js, Better Auth, Drizzle, PostgreSQL, and viem. The app has no AI features or AI API dependencies.
+
+## Screenshots
+
+These are browser captures from a local test project after three real POST requests and one replay. The analytics counts are calculated from the saved events.
+
+**Event history**
+
+![Event activity table showing received requests and a replay](public/screenshots/event-history.png)
+
+**Request detail**
+
+![Request inspector with saved metadata and formatted JSON](public/screenshots/event-detail.png)
+
+**Project analytics**
+
+![Analytics calculated from four saved events](public/screenshots/analytics.png)
 
 ## Features
 
